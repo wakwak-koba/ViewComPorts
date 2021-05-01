@@ -37,7 +37,7 @@ namespace ViewComPorts
 
             // ComPorts
             var Nicknames = new General.DictionaryEx<string, string>(Properties.Settings.Default.Nickname);
-            menuStrip.Items.AddRange(new General.ComPorts().Select(m => new System.Windows.Forms.ToolStripLabel(Nicknames.ContainsKey(m.DeviceID) ? Nicknames[m.DeviceID] + " (COM" + m.Port.ToString() + ")" : m.Name)).ToArray());
+            menuStrip.Items.AddRange(new General.ComPorts().Select(m => new System.Windows.Forms.ToolStripLabel(!string.IsNullOrEmpty(m.DeviceID) && Nicknames.ContainsKey(m.DeviceID) ? Nicknames[m.DeviceID] + " (COM" + m.Port.ToString() + ")" : m.Name)).ToArray());
 
             // Settings
             menuStrip.Items.Add(new System.Windows.Forms.ToolStripSeparator());

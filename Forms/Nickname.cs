@@ -22,7 +22,7 @@ namespace ViewComPorts.Forms
                 dt.Columns.Add("Nickname", typeof(string));
 
                 var nk = this.Nicknames;
-                foreach (var Com in ComPorts)
+                foreach (var Com in ComPorts.Where(p => !string.IsNullOrEmpty(p.DeviceID)))
                     dt.Rows.Add(Com.DeviceID, Com.Port, Com.Name, nk.ContainsKey(Com.DeviceID) ? nk[Com.DeviceID] : "");
 
                 grdList.DataSource = dt;

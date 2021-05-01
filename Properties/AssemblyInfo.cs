@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("wakwak_koba")]
 [assembly: AssemblyProduct("ViewComPorts")]
-[assembly: AssemblyCopyright("Copyright © @wakwak_koba 2019")]
+[assembly: AssemblyCopyright("Copyright © @wakwak_koba 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
