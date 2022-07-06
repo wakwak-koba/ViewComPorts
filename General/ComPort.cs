@@ -36,7 +36,7 @@ namespace General
 
             this.AddRange(
                 getDevices("Ports", new[] { SPDRP.HARDWAREID, SPDRP.MFG, SPDRP.FRIENDLYNAME })
-                .Select(m => new { InstanceID = m.DeviceInstanceId, DeviceID = m.properties[SPDRP.HARDWAREID],  Manufacturer = m.properties[SPDRP.MFG].FirstOrDefault(), Name = m.properties[SPDRP.FRIENDLYNAME].FirstOrDefault()})
+                .Select(m => new { InstanceID = m.DeviceInstanceId, DeviceID = m.properties[SPDRP.HARDWAREID],  Manufacturer = m.properties[SPDRP.MFG].FirstOrDefault(), Name = m.properties[SPDRP.FRIENDLYNAME]?.FirstOrDefault()})
                 .Where(m => m.Name != null && r.IsMatch(m.Name))
                 .Select(m => new ComPort(m.InstanceID, (m.Manufacturer != null && !m.Name.StartsWith(m.Manufacturer) ? m.Manufacturer + " " : "") + m.Name, int.Parse(r.Match(m.Name).Groups["Port"].Value)))
                 .OrderBy(m => m.Port)
